@@ -90,7 +90,7 @@ export default function Cv() {
           <div className="bg-zinc-100 px-4 py-6 dark:bg-zinc-900 sm:px-12 sm:py-12">
             <SectionTitle>ABOUT ME</SectionTitle>
 
-            <p className="text-sm leading-7 text-zinc-600">
+            <p className="text-sm leading-7 text-zinc-600 dark:text-zinc-300">
               I am an Information Technology professional with experience since
               2015. I have strong expertise in web and mobile application
               development using Full Stack Developer building web and mobile
@@ -109,7 +109,7 @@ export default function Cv() {
                   <p className="text-[10px] font-semibold uppercase tracking-widest text-zinc-400">
                     Phone
                   </p>
-                  <p className="mt-1 font-medium text-zinc-700">
+                  <p className="mt-1 font-medium text-zinc-700 dark:text-zinc-200">
                     <Link href={"https://wa.me/6281222294324"} target="_blank">
                       +62812-2229-4324
                     </Link>
@@ -120,7 +120,7 @@ export default function Cv() {
                   <p className="text-[10px] font-semibold uppercase tracking-widest text-zinc-400">
                     Email
                   </p>
-                  <p className="mt-1 break-all font-medium text-zinc-700">
+                  <p className="mt-1 break-all font-medium text-zinc-700 dark:text-zinc-200">
                     <Link href="mailto:masaryo1989@gmail.com">
                       masaryo1989@gmail.com
                     </Link>
@@ -131,7 +131,7 @@ export default function Cv() {
                   <p className="text-[10px] font-semibold uppercase tracking-widest text-zinc-400">
                     Address
                   </p>
-                  <p className="mt-1 font-medium leading-6 text-zinc-700">
+                  <p className="mt-1 font-medium leading-6 text-zinc-700 dark:text-zinc-200">
                     Jatinegara, Jakarta Timur,
                     <br />
                     DKI Jakarta - Indonesia
@@ -148,7 +148,7 @@ export default function Cv() {
               {expertise.map((item) => (
                 <div
                   key={item}
-                  className="border-b border-zinc-100 pb-2 text-sm text-zinc-700"
+                  className="border-b border-zinc-100 pb-2 text-sm text-zinc-700 dark:border-zinc-800 dark:text-zinc-200"
                 >
                   {item}
                 </div>
@@ -158,8 +158,12 @@ export default function Cv() {
             <div className="space-y-3">
               <div>
                 <div className="mb-1 flex items-center justify-between">
-                  <span className="text-base text-slate-700">Indonesia</span>
-                  <span className="text-sm text-slate-500">100%</span>
+                  <span className="text-base text-slate-700 dark:text-zinc-200">
+                    Indonesia
+                  </span>
+                  <span className="text-sm text-slate-500 dark:text-zinc-400">
+                    100%
+                  </span>
                 </div>
 
                 <div className="h-2.5 w-full rounded-full bg-slate-300">
@@ -172,8 +176,12 @@ export default function Cv() {
 
               <div>
                 <div className="mb-1 flex items-center justify-between">
-                  <span className="text-base text-slate-700">English</span>
-                  <span className="text-sm text-slate-500">75%</span>
+                  <span className="text-base text-slate-700 dark:text-zinc-200">
+                    English
+                  </span>
+                  <span className="text-sm text-slate-500 dark:text-zinc-400">
+                    75%
+                  </span>
                 </div>
 
                 <div className="h-2.5 w-full rounded-full bg-slate-300">
@@ -194,27 +202,27 @@ export default function Cv() {
 
       {/* CV PAGE 2 */}
       <PageShell>
-        <div className="flex-1 py-10 sm:px-14 sm:py-14">
+        <div className="flex-1 px-2 py-6 sm:px-14 sm:py-14">
           <SectionTitle>WORK EXPERIENCE</SectionTitle>
 
-          <div className="relative ml-2 border-l border-zinc-200 pl-7 sm:pl-10">
+          <div className="relative ml-2 border-l border-zinc-200 pl-7 dark:border-zinc-700 sm:pl-10">
             {experiences.map((item, index) => (
               <article
                 key={`${item.company}-${item.period}`}
                 className={index === experiences.length - 1 ? "" : "pb-9"}
               >
-                <span className="absolute -left-[5px] mt-1 h-2 w-2 rounded-full bg-zinc-700" />
+                <span className="absolute -left-[5px] mt-1 h-2 w-2 rounded-full bg-zinc-700 dark:bg-zinc-400" />
 
                 <div className="flex flex-col justify-between gap-1 sm:flex-row sm:items-baseline">
-                  <h3 className="text-sm font-bold text-zinc-900 sm:text-base">
+                  <h3 className="text-sm font-bold text-zinc-900 dark:text-zinc-100 sm:text-base">
                     {item.company}
                   </h3>
-                  <span className="text-[10px] font-medium tracking-wider text-zinc-400">
+                  <span className="text-[10px] font-medium tracking-wider text-zinc-400 dark:text-zinc-400">
                     {item.period}
                   </span>
                 </div>
 
-                <p className="mt-2 text-sm leading-6 text-zinc-500">
+                <p className="mt-2 text-sm leading-6 text-zinc-500 dark:text-zinc-300">
                   {item.role}
                 </p>
               </article>
@@ -228,24 +236,28 @@ export default function Cv() {
               <div className="space-y-7">
                 <article>
                   <div className="flex items-baseline justify-between gap-3">
-                    <h3 className="text-sm font-bold text-zinc-900">
+                    <h3 className="text-sm font-bold text-zinc-900 dark:text-zinc-100">
                       Bina Sarana Informatika
                     </h3>
-                    <span className="text-[10px] text-zinc-400">2015</span>
+                    <span className="text-[10px] text-zinc-400 dark:text-zinc-500">
+                      2015
+                    </span>
                   </div>
-                  <p className="mt-2 text-sm leading-6 text-zinc-500">
+                  <p className="mt-2 text-sm leading-6 text-zinc-500 dark:text-zinc-300">
                     Informatics Management - Diploma 3
                   </p>
                 </article>
 
                 <article>
                   <div className="flex items-baseline justify-between gap-3">
-                    <h3 className="text-sm font-bold text-zinc-900">
+                    <h3 className="text-sm font-bold text-zinc-900 dark:text-zinc-100">
                       Universitas Nusa Mandiri
                     </h3>
-                    <span className="text-[10px] text-zinc-400">2023</span>
+                    <span className="text-[10px] text-zinc-400 dark:text-zinc-500">
+                      2023
+                    </span>
                   </div>
-                  <p className="mt-2 text-sm leading-6 text-zinc-500">
+                  <p className="mt-2 text-sm leading-6 text-zinc-500 dark:text-zinc-300">
                     Information Systems - Bachelor Degree
                   </p>
                 </article>
@@ -258,22 +270,28 @@ export default function Cv() {
               <div className="space-y-7">
                 <article>
                   <div className="flex items-baseline justify-between gap-3">
-                    <h3 className="text-sm font-bold text-zinc-900">
+                    <h3 className="text-sm font-bold text-zinc-900 dark:text-zinc-100">
                       Hacktiv8 Course
                     </h3>
-                    <span className="text-[10px] text-zinc-400">2019</span>
+                    <span className="text-[10px] text-zinc-400 dark:text-zinc-500">
+                      2019
+                    </span>
                   </div>
-                  <p className="mt-2 text-sm leading-6 text-zinc-500">
+                  <p className="mt-2 text-sm leading-6 text-zinc-500 dark:text-zinc-300">
                     ReactJS, React Native, NodeJS &amp; MongoDB Course
                   </p>
                 </article>
 
                 <article>
                   <div className="flex items-baseline justify-between gap-3">
-                    <h3 className="text-sm font-bold text-zinc-900">BNSP</h3>
-                    <span className="text-[10px] text-zinc-400">2023</span>
+                    <h3 className="text-sm font-bold text-zinc-900 dark:text-zinc-100">
+                      BNSP
+                    </h3>
+                    <span className="text-[10px] text-zinc-400 dark:text-zinc-500">
+                      2023
+                    </span>
                   </div>
-                  <p className="mt-2 text-sm leading-6 text-zinc-500">
+                  <p className="mt-2 text-sm leading-6 text-zinc-500 dark:text-zinc-300">
                     Program Analyst
                   </p>
                 </article>
@@ -282,7 +300,7 @@ export default function Cv() {
           </div>
         </div>
 
-        <div className="border-t border-zinc-200 px-7 py-4 text-right text-[9px] tracking-[0.25em] text-zinc-400 sm:px-14">
+        <div className="border-t border-zinc-200 px-7 py-4 text-right text-[9px] tracking-[0.25em] text-zinc-400 dark:border-zinc-700 dark:text-zinc-500 sm:px-14">
           CURRICULUM VITAE · 02
         </div>
       </PageShell>
