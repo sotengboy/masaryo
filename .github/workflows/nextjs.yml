@@ -41,6 +41,7 @@ jobs:
             --exclude="node_modules" \
             --exclude=".git" \
             --exclude=".env" \
+            --exclude=".next" \
             -e "ssh -p ${{ secrets.PORT }}" \
             ./ ${{ secrets.USERNAME }}@${{ secrets.HOST }}:${{ secrets.TARGET_DIR }}
 
