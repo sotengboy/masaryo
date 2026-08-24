@@ -80,7 +80,7 @@ export default function Cv() {
               AGUS SUNARYO
             </h1>
 
-            <p className="mt-3 text-[9px] font-semibold tracking-[0.4em] text-zinc-300 sm:text-xs">
+            <p className="mt-3 text-[9px] font-semibold tracking-[0.4em] text-zinc-300 sm:text-xs text-center md:text-left">
               SOFTWARE ENGINEER
             </p>
           </div>

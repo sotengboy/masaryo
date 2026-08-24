@@ -66,7 +66,7 @@ export default function Portfolio() {
           </div>
 
           <span className="text-sm text-slate-400 dark:text-zinc-400">
-            2022 — 2026
+            2025 — 2026
           </span>
         </div>
 
