@@ -202,7 +202,7 @@ export default function Cv() {
 
       {/* CV PAGE 2 */}
       <PageShell>
-        <div className="flex-1 px-2 py-6 sm:px-14 sm:py-14">
+        <div className="flex-1 px-2 py-6 ">
           <SectionTitle>WORK EXPERIENCE</SectionTitle>
 
           <div className="relative ml-2 border-l border-zinc-200 pl-7 dark:border-zinc-700 sm:pl-10">

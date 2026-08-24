@@ -44,7 +44,7 @@ const projects = [
 export default function Portfolio() {
   return (
     <section
-      className="min-h-screen bg-white px-3 py-8 text-slate-900 dark:bg-zinc-950 dark:text-zinc-50 sm:px-6 md:px-12 lg:px-20"
+      className="min-h-screen bg-white px-3 py-8 text-slate-900 dark:bg-zinc-950 dark:text-zinc-50 "
       id="portfolio"
     >
       <div className="mx-auto max-w-6xl">
