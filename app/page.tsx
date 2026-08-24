@@ -8,7 +8,7 @@ export default function Home() {
     <div className="h-screen overflow-y-auto snap-y snap-mandatory bg-zinc-100 dark:bg-black">
       {/* PAGE 1 */}
       <section className="flex min-h-screen snap-start items-center justify-center p-4 sm:p-8">
-        <main className="flex min-h-[70vh] w-full max-w-3xl flex-col items-center justify-between rounded-lg bg-white px-4 py-8 shadow-sm dark:bg-zinc-950 sm:min-h-[90vh] sm:px-8 sm:py-16 sm:px-16">
+        <main className="flex min-h-[70vh] w-full max-w-3xl flex-col items-center justify-between rounded-[18px] border border-zinc-200 bg-[#fdfdfc] px-4 py-8 shadow-[0_18px_40px_rgba(15,23,42,0.08)] ring-1 ring-black/5 dark:border-zinc-800 dark:bg-zinc-950 dark:shadow-[0_18px_40px_rgba(0,0,0,0.35)] sm:min-h-[90vh] sm:px-8 sm:py-16 sm:px-16">
           <Image
             className="dark:invert"
             src="/next.svg"
