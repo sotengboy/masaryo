@@ -7,8 +7,8 @@ export default function Home() {
   return (
     <div className="h-screen overflow-y-auto snap-y snap-mandatory bg-zinc-100 dark:bg-black">
       {/* PAGE 1 */}
-      <section className="min-h-screen snap-start flex items-center justify-center p-8">
-        <main className="flex min-h-[90vh] w-full max-w-3xl flex-col items-center justify-between rounded-lg bg-white px-8 py-16 shadow-sm dark:bg-zinc-950 sm:px-16">
+      <section className="flex min-h-screen snap-start items-center justify-center p-4 sm:p-8">
+        <main className="flex min-h-[70vh] w-full max-w-3xl flex-col items-center justify-between rounded-lg bg-white px-4 py-8 shadow-sm dark:bg-zinc-950 sm:min-h-[90vh] sm:px-8 sm:py-16 sm:px-16">
           <Image
             className="dark:invert"
             src="/next.svg"
@@ -59,8 +59,8 @@ export default function Home() {
       <CuriculumVitae />
 
       {/* PAGE 3 */}
-      <section className="min-h-screen snap-start flex items-center justify-center p-8">
-        <main className="flex min-h-[90vh] w-full max-w-3xl flex-col items-center justify-center rounded-lg bg-white p-16 shadow-sm dark:bg-zinc-950">
+      <section className="flex min-h-screen snap-start items-center justify-center p-4 sm:p-8">
+        <main className="flex min-h-[70vh] w-full max-w-3xl flex-col items-center justify-center rounded-lg bg-white p-3 shadow-sm dark:bg-zinc-950 sm:min-h-[90vh] sm:p-8 md:p-10 lg:p-12">
           <Portfolio />
         </main>
       </section>

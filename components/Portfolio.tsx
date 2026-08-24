@@ -44,39 +44,41 @@ const projects = [
 export default function Portfolio() {
   return (
     <section
-      className="min-h-screen bg-white px-6 py-12 md:px-12 lg:px-20"
+      className="min-h-screen bg-white px-3 py-8 text-slate-900 dark:bg-zinc-950 dark:text-zinc-50 sm:px-6 md:px-12 lg:px-20"
       id="portfolio"
     >
       <div className="mx-auto max-w-6xl">
         {/* Header */}
-        <div className="mb-10 flex flex-col justify-between gap-4 md:flex-row md:items-end">
+        <div className="mb-6 flex flex-col justify-between gap-3 md:mb-10 md:flex-row md:items-end">
           <div>
-            <p className="mb-2 text-xs font-semibold uppercase tracking-[0.25em] text-emerald-600">
+            <p className="mb-2 text-[10px] font-semibold uppercase tracking-[0.25em] text-emerald-600">
               Selected Works
             </p>
 
-            <h1 className="text-4xl font-bold tracking-tight text-slate-900 md:text-5xl">
+            <h1 className="text-3xl font-bold tracking-tight text-slate-900 dark:text-zinc-50 md:text-5xl">
               Portfolio
             </h1>
 
-            <p className="mt-3 max-w-2xl text-sm leading-6 text-slate-500">
+            <p className="mt-3 max-w-2xl text-sm leading-6 text-slate-500 dark:text-zinc-300">
               Selected projects designed and developed from architecture to
               deployment.
             </p>
           </div>
 
-          <span className="text-sm text-slate-400">2022 — 2026</span>
+          <span className="text-sm text-slate-400 dark:text-zinc-400">
+            2022 — 2026
+          </span>
         </div>
 
         {/* Portfolio List */}
-        <div className="divide-y divide-slate-200">
+        <div className="divide-y divide-slate-200 dark:divide-zinc-800">
           {projects.map((project, index) => (
             <article
               key={project.title}
-              className="group grid gap-6 py-8 first:pt-0 md:grid-cols-[42%_1fr] md:gap-10"
+              className="group grid gap-4 py-6 first:pt-0 sm:gap-6 sm:py-8 md:grid-cols-[42%_1fr] md:gap-10"
             >
               {/* Image */}
-              <div className="relative aspect-[16/10] overflow-hidden rounded-xl bg-slate-100">
+              <div className="relative aspect-[16/10] overflow-hidden rounded-xl bg-slate-100 dark:bg-zinc-900">
                 <Image
                   src={project.image}
                   alt={project.title}
@@ -91,24 +93,24 @@ export default function Portfolio() {
 
               {/* Text */}
               <div className="flex flex-col justify-center">
-                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-emerald-600">
+                <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-emerald-600">
                   {project.category}
                 </p>
 
-                <h2 className="mt-2 text-2xl font-bold tracking-tight text-slate-900">
+                <h2 className="mt-2 text-2xl font-bold tracking-tight text-slate-900 dark:text-zinc-50">
                   {project.title}
                 </h2>
 
-                <p className="mt-3 max-w-xl text-sm leading-6 text-slate-500">
+                <p className="mt-3 max-w-xl text-sm leading-6 text-slate-500 dark:text-zinc-300">
                   {project.description}
                 </p>
 
                 <div className="mt-5">
-                  <p className="text-[10px] font-semibold uppercase tracking-wider text-slate-400">
+                  <p className="text-[10px] font-semibold uppercase tracking-wider text-slate-400 dark:text-zinc-400">
                     Role
                   </p>
 
-                  <p className="mt-1 text-sm font-medium text-slate-700">
+                  <p className="mt-1 text-sm font-medium text-slate-700 dark:text-zinc-200">
                     {project.role}
                   </p>
                 </div>
@@ -117,7 +119,7 @@ export default function Portfolio() {
                   {project.technologies.map((technology) => (
                     <span
                       key={technology}
-                      className="rounded-full bg-slate-100 px-3 py-1 text-[11px] font-medium text-slate-600"
+                      className="rounded-full bg-slate-100 px-3 py-1 text-[11px] font-medium text-slate-600 dark:bg-zinc-800 dark:text-zinc-200"
                     >
                       {technology}
                     </span>
@@ -129,12 +131,12 @@ export default function Portfolio() {
         </div>
 
         {/* Footer */}
-        <div className="mt-4 flex items-center justify-between border-t border-slate-200 pt-6">
-          <p className="text-xs text-slate-400">
+        <div className="mt-4 flex flex-col gap-2 border-t border-slate-200 pt-6 text-left sm:flex-row sm:items-center sm:justify-between dark:border-zinc-800">
+          <p className="text-xs text-slate-400 dark:text-zinc-400">
             Designing systems. Building products. Solving problems.
           </p>
 
-          <p className="text-xs font-semibold text-slate-700">
+          <p className="text-xs font-semibold text-slate-700 dark:text-zinc-200">
             Software Engineer
           </p>
         </div>

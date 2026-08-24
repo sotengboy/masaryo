@@ -41,18 +41,18 @@ const expertise = [
 function SectionTitle({ children }: { children: React.ReactNode }) {
   return (
     <div className="mb-7">
-      <h2 className="text-xs font-bold tracking-[0.25em] text-zinc-900">
+      <h2 className="text-xs font-bold tracking-[0.25em] text-zinc-900 dark:text-zinc-100">
         {children}
       </h2>
-      <div className="mt-3 h-[2px] w-10 bg-zinc-700" />
+      <div className="mt-3 h-[2px] w-10 bg-zinc-700 dark:bg-zinc-400" />
     </div>
   );
 }
 
 function PageShell({ children }: { children: React.ReactNode }) {
   return (
-    <section className="min-h-screen snap-start flex items-center justify-center p-8">
-      <div className="flex min-h-[90vh] w-full max-w-3xl flex-col items-center justify-between rounded-lg bg-white px-8 py-16 shadow-sm dark:bg-zinc-950 sm:px-16">
+    <section className="flex min-h-screen snap-start items-center justify-center p-3 sm:p-8">
+      <div className="flex min-h-[75vh] w-full max-w-3xl flex-col items-center justify-between rounded-lg bg-white px-3 py-5 shadow-sm dark:bg-zinc-950 sm:min-h-[90vh] sm:px-8 sm:py-10 md:px-12 md:py-16">
         {children}
       </div>
     </section>
@@ -64,8 +64,8 @@ export default function Cv() {
     <>
       {/* CV PAGE 1 */}
       <PageShell>
-        <header className="flex items-center gap-6 bg-[#175e92] py-10 text-white sm:gap-8 sm:px-14 sm:py-14">
-          <div className="relative h-32 w-32 shrink-0 overflow-hidden rounded-full border-4 border-white/20 sm:h-32 sm:w-32">
+        <header className="flex flex-col items-center gap-4 bg-[#175e92] px-4 py-8 text-white sm:flex-row sm:gap-8 sm:px-14 sm:py-14 w-full">
+          <div className="relative h-24 w-24 shrink-0 overflow-hidden rounded-full border-4 border-white/20 sm:h-32 sm:w-32">
             <Image
               src="/aryo.png"
               alt="Agus Sunaryo"
@@ -75,8 +75,8 @@ export default function Cv() {
             />
           </div>
 
-          <div className="ml-10">
-            <h1 className="text-3xl font-bold tracking-[0.08em] sm:text-5xl">
+          <div className="ml-0 sm:ml-10">
+            <h1 className="text-2xl font-bold tracking-[0.08em] sm:text-5xl">
               AGUS SUNARYO
             </h1>
 
@@ -87,7 +87,7 @@ export default function Cv() {
         </header>
 
         <div className="grid flex-1 grid-cols-1 sm:grid-cols-2">
-          <div className="bg-zinc-100 px-7 py-9 sm:px-12 sm:py-12">
+          <div className="bg-zinc-100 px-4 py-6 dark:bg-zinc-900 sm:px-12 sm:py-12">
             <SectionTitle>ABOUT ME</SectionTitle>
 
             <p className="text-sm leading-7 text-zinc-600">
@@ -141,7 +141,7 @@ export default function Cv() {
             </div>
           </div>
 
-          <div className="px-7 py-9 sm:px-12 sm:py-12">
+          <div className="px-4 py-6 sm:px-12 sm:py-12">
             <SectionTitle>EXPERTISE</SectionTitle>
 
             <div className="grid grid-cols-2 gap-x-5 gap-y-4">
