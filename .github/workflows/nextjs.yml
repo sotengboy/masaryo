@@ -1,0 +1,65 @@
+name: Deploy Node.js Express via Environment Secrets
+
+on:
+  push:
+    branches:
+      - main
+      - development
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    # Pilih environment berdasarkan branch
+    environment: ${{ github.ref == 'refs/heads/main' && 'Production' || 'Development' }}
+
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: "npm"
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build App
+        run: npm run build
+
+      - name: Setup SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.PRIVATE_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan -p ${{ secrets.PORT }} ${{ secrets.HOST }} >> ~/.ssh/known_hosts
+
+      - name: Deploy Files to VPS
+        run: |
+          rsync -avz --no-times \
+            --exclude="node_modules" \
+            --exclude=".git" \
+            --exclude=".env" \
+            -e "ssh -p ${{ secrets.PORT }}" \
+            ./ ${{ secrets.USERNAME }}@${{ secrets.HOST }}:${{ secrets.TARGET_DIR }}
+
+      - name: Install & Restart on VPS
+        run: |
+          ssh -p ${{ secrets.PORT }} ${{ secrets.USERNAME }}@${{ secrets.HOST }} <<EOF
+            cd ${{ secrets.TARGET_DIR }}
+
+            BRANCH="${GITHUB_REF}"
+
+            if [ "\$BRANCH" = "refs/heads/main" ]; then
+              echo "Branch main: restart produksi"
+              npm install
+              npm run build
+              pm2 restart masaryo || pm2 start npm --name "masaryo" -- start
+            else
+              echo "Branch dev: restart development"
+              npm install
+              npm run build
+              pm2 restart masaryo-dev || pm2 start npm --name "masaryo-dev" -- start
+            fi
+          EOF
