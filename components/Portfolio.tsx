@@ -10,7 +10,7 @@ const projects = [
       "A maintenance platform that connects customers, engineers, and management in a single system.",
     image: "/portfolio/servicehub.png",
     technologies: ["Next.js", "React Native", "Node.js", "MongoDB"],
-    role: "System Design • Full Stack Development",
+    role: "System Design - Full Stack Development",
   },
   {
     title: "WhatsApp AI Chatbot",
@@ -19,7 +19,7 @@ const projects = [
       "Automated WhatsApp customer support powered by AI, conversation management, and human handover.",
     image: "/portfolio/whatshub.png",
     technologies: ["Next.js", "Node.js", "WhatsApp API", "AI"],
-    role: "System Design • Full Stack Development • AI Integration",
+    role: "System Design - Full Stack Development - AI Integration",
   },
   {
     title: "Karya Tiga Solusindo",
@@ -28,7 +28,7 @@ const projects = [
       "A custom e-commerce platform with product management, checkout flow, order management, and system integration.",
     image: "/portfolio/ecommerce.png",
     technologies: ["Next.js", "TypeScript", "PostgreSQL", "Prisma"],
-    role: "System Architecture • Full Stack Development",
+    role: "System Architecture - Full Stack Development",
   },
   {
     title: "Astro Property",
@@ -37,7 +37,7 @@ const projects = [
       "A custom property listing web to list and sell property by registered agent.",
     image: "/portfolio/astroproperty.png",
     technologies: ["Next.js", "TypeScript", "Laravel", "REST API"],
-    role: "System Architecture • Full Stack Development",
+    role: "System Architecture - Full Stack Development",
   },
 ];
 
@@ -51,7 +51,7 @@ export default function Portfolio() {
         {/* Header */}
         <div className="mb-6 flex flex-col justify-between gap-3 md:mb-10 md:flex-row md:items-end">
           <div>
-            <p className="mb-2 text-[10px] font-semibold uppercase tracking-[0.25em] text-emerald-600">
+            <p className="mb-2 text-[10px] font-semibold uppercase tracking-[0.25em] text-[#175e92]">
               Selected Works
             </p>
 
@@ -66,7 +66,7 @@ export default function Portfolio() {
           </div>
 
           <span className="text-sm text-slate-400 dark:text-zinc-400">
-            2025 — 2026
+            2025 - 2026
           </span>
         </div>
 
@@ -93,7 +93,7 @@ export default function Portfolio() {
 
               {/* Text */}
               <div className="flex flex-col justify-center">
-                <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-emerald-600">
+                <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-[#175e92]">
                   {project.category}
                 </p>
 

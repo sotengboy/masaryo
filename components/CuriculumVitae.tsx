@@ -166,9 +166,9 @@ export default function Cv() {
                   </span>
                 </div>
 
-                <div className="h-2.5 w-full rounded-full bg-slate-300">
+                <div className="h-2.5 w-full rounded-full bg-[slate-300]">
                   <div
-                    className="h-2.5 rounded-full bg-sky-700"
+                    className="h-2.5 rounded-full bg-[#175e92]"
                     style={{ width: "100%" }}
                   />
                 </div>
@@ -186,7 +186,7 @@ export default function Cv() {
 
                 <div className="h-2.5 w-full rounded-full bg-slate-300">
                   <div
-                    className="h-2.5 rounded-full bg-sky-700"
+                    className="h-2.5 rounded-full bg-[#175e92]"
                     style={{ width: "75%" }}
                   />
                 </div>
