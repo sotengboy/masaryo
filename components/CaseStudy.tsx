@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { caseStudies } from "@/database/casestudy";
+import { ArrowRight } from "lucide-react";
 
 export default function CaseStudy() {
   return (
@@ -67,11 +68,11 @@ export default function CaseStudy() {
                     ))}
                   </div>
                   <a
-                    className="flex mt-5 h-12 gap-2 text-[#175e92] transition-colors hover:text-blue-500"
+                    className="flex mt-5 pt-3 h-12 gap-2 text-[#175e92] transition-colors hover:text-blue-500 w-full border-t border-gray-200"
                     href={`/case/${project.slug}`}
                     rel="noopener noreferrer"
                   >
-                    Read More →
+                    Read Detail <ArrowRight size={15} className="mt-1" />
                   </a>
                 </div>
               </article>
