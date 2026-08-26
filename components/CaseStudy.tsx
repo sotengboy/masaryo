@@ -1,32 +1,26 @@
 "use client";
 
 import Image from "next/image";
-import { portfolios } from "@/database/portfolio";
+import { caseStudies } from "@/database/casestudy";
 
-const projects = portfolios;
-
-export default function Portfolio() {
+export default function CaseStudy() {
   return (
     <section
       className="flex min-h-screen snap-start items-center justify-center p-4 sm:p-8"
-      id="portfolio"
+      id="casestudy"
     >
       <main className="flex min-h-[70vh] w-full max-w-3xl flex-col items-center justify-center rounded-lg bg-white p-3 shadow-sm dark:bg-zinc-950 sm:min-h-[90vh] sm:p-8 md:p-10 lg:p-12">
-        <div className="mx-auto max-w-6xl">
+        <div className="mx-auto flex w-full max-w-6xl flex-1 flex-col">
           {/* Header */}
           <div className="mb-6 flex flex-col justify-between gap-3 md:mb-10 md:flex-row md:items-end">
             <div>
-              <p className="mb-2 text-[10px] font-semibold uppercase tracking-[0.25em] text-[#175e92]">
-                Selected Works
-              </p>
-
               <h1 className="text-3xl font-bold tracking-tight text-slate-900 dark:text-zinc-50 md:text-5xl">
-                Portfolio
+                Case Study
               </h1>
 
               <p className="mt-3 max-w-2xl text-sm leading-6 text-slate-500 dark:text-zinc-300">
-                Selected projects designed and developed from architecture to
-                deployment.
+                A closer look at the problems I solved and the solutions I
+                built.
               </p>
             </div>
 
@@ -36,32 +30,14 @@ export default function Portfolio() {
           </div>
 
           {/* Portfolio List */}
-          <div className="divide-y divide-slate-200 dark:divide-zinc-800">
-            {projects.map((project, index) => (
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 mb-5">
+            {caseStudies.map((project) => (
               <article
                 key={project.title}
-                className="group grid gap-4 py-6 first:pt-0 sm:gap-6 sm:py-8 md:grid-cols-[42%_1fr] md:gap-10"
+                className="group grid gap-4 p-3 first:pt-0 sm:gap-6 sm:py-8 rounded-lg border border-dashed border-slate-200 dark:border-zinc-800"
               >
-                {/* Image */}
-                <div className="relative aspect-[16/10] overflow-hidden rounded-xl bg-slate-100 dark:bg-zinc-900">
-                  <Image
-                    src={project.image}
-                    alt={project.title}
-                    fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-
-                  <div className="absolute left-3 top-3 flex h-8 w-8 items-center justify-center rounded-full bg-white/90 text-xs font-bold text-slate-700 shadow-sm backdrop-blur">
-                    {String(index + 1).padStart(2, "0")}
-                  </div>
-                </div>
-
                 {/* Text */}
-                <div className="flex flex-col justify-center">
-                  <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-[#175e92]">
-                    {project.category}
-                  </p>
-
+                <div className="flex flex-col w-full">
                   <h2 className="mt-2 text-2xl font-bold tracking-tight text-slate-900 dark:text-zinc-50">
                     {project.title}
                   </h2>
@@ -90,13 +66,20 @@ export default function Portfolio() {
                       </span>
                     ))}
                   </div>
+                  <a
+                    className="flex mt-5 h-12 gap-2 text-[#175e92] transition-colors hover:text-blue-500"
+                    href={`/case/${project.slug}`}
+                    rel="noopener noreferrer"
+                  >
+                    Read More →
+                  </a>
                 </div>
               </article>
             ))}
           </div>
 
           {/* Footer */}
-          <div className="mt-4 flex flex-col gap-2 border-t border-slate-200 pt-6 text-left sm:flex-row sm:items-center sm:justify-between dark:border-zinc-800">
+          <div className="mt-auto flex flex-col gap-2 border-t border-slate-200 pt-6 text-left sm:flex-row sm:items-center sm:justify-between dark:border-zinc-800">
             <p className="text-xs text-slate-400 dark:text-zinc-400">
               Designing systems. Building products. Solving problems.
             </p>

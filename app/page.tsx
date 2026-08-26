@@ -1,70 +1,183 @@
+"use client";
+
+import { useEffect, useRef, useState } from "react";
+import { ArrowDown, ArrowUp } from "lucide-react";
+import CaseStudy from "@/components/CaseStudy";
 import CuriculumVitae from "@/components/CuriculumVitae";
+import Hero from "@/components/Hero";
 import Portfolio from "@/components/Portfolio";
-import ScrollToTop from "@/components/ScrollToTop";
-import Image from "next/image";
 
 export default function Home() {
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+
+  const [currentSection, setCurrentSection] = useState(0);
+  const [showFloatingButton, setShowFloatingButton] = useState(false);
+
+  const sections = [
+    {
+      id: "hero",
+      nextTitle: "Curriculum Vitae",
+    },
+    {
+      id: "cv1",
+      nextTitle: "CV Page 2",
+    },
+    {
+      id: "cv2",
+      nextTitle: "Portfolio",
+    },
+    {
+      id: "portfolio",
+      nextTitle: "Case Study",
+    },
+    {
+      id: "casestudy",
+      nextTitle: null,
+    },
+  ];
+  const activeSection = sections[currentSection];
+
+  const isLastSection = currentSection >= sections.length - 1;
+
+  const nextTitle = activeSection?.nextTitle ?? null;
+  useEffect(() => {
+    const container = scrollContainerRef.current;
+
+    if (!container) return;
+
+    const updateActiveSection = () => {
+      const containerRect = container.getBoundingClientRect();
+      const viewportCenter = containerRect.top + containerRect.height / 2;
+
+      let activeIndex = 0;
+      let closestDistance = Infinity;
+
+      sections.forEach((section, index) => {
+        const element = document.getElementById(section.id);
+
+        if (!element) return;
+
+        const rect = element.getBoundingClientRect();
+
+        // Titik tengah section
+        const sectionCenter = rect.top + rect.height / 2;
+
+        const distance = Math.abs(viewportCenter - sectionCenter);
+
+        if (distance < closestDistance) {
+          closestDistance = distance;
+          activeIndex = index;
+        }
+      });
+
+      setCurrentSection(activeIndex);
+      setShowFloatingButton(activeIndex > 0);
+    };
+
+    container.addEventListener("scroll", updateActiveSection, {
+      passive: true,
+    });
+
+    // Initial check
+    updateActiveSection();
+
+    return () => {
+      container.removeEventListener("scroll", updateActiveSection);
+    };
+  }, []);
+  const handleScroll = () => {
+    const container = scrollContainerRef.current;
+
+    if (!container) return;
+
+    const scrollTop = container.scrollTop;
+    const sectionHeight = container.clientHeight;
+
+    const sectionIndex = Math.round(scrollTop / sectionHeight);
+
+    setCurrentSection(sectionIndex);
+
+    // Tombol mulai muncul setelah section pertama
+    if (sectionIndex > 0) {
+      setShowFloatingButton(true);
+    } else {
+      setShowFloatingButton(false);
+    }
+  };
+
+  const handleFloatingButton = () => {
+    const container = scrollContainerRef.current;
+
+    if (!container) return;
+
+    const isLastSection = currentSection >= sections.length - 1;
+
+    // Section terakhir → kembali ke paling atas
+    if (isLastSection) {
+      container.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+
+      return;
+    }
+
+    // Section berikutnya
+    const nextSectionData = sections[currentSection + 1];
+
+    if (!nextSectionData) return;
+
+    const nextSection = document.getElementById(nextSectionData.id);
+
+    if (!nextSection) return;
+
+    nextSection.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  };
   return (
-    <div className="h-screen overflow-y-auto snap-y snap-mandatory bg-zinc-100 dark:bg-black">
-      {/* PAGE 1 */}
-      <section className="flex min-h-screen snap-start items-center justify-center p-4 sm:p-8 h-full">
-        <main className="flex min-h-[70vh] w-full max-w-3xl flex-col items-center justify-between rounded-[18px] border border-zinc-200 bg-[#fdfdfc] px-4 py-8 shadow-[0_18px_40px_rgba(15,23,42,0.08)] ring-1 ring-black/5 dark:border-zinc-800 dark:bg-zinc-950 dark:shadow-[0_18px_40px_rgba(0,0,0,0.35)] sm:min-h-[90vh] sm:px-8 sm:py-16 sm:px-16">
-          <Image
-            className="dark:invert"
-            src="/next.svg"
-            alt="Next.js logo"
-            width={100}
-            height={20}
-            priority
-          />
+    <>
+      <div
+        ref={scrollContainerRef}
+        // onScroll={handleScroll}
+        className="h-screen overflow-y-auto snap-y snap-mandatory bg-zinc-100 dark:bg-black"
+      >
+        <Hero />
+        <CuriculumVitae />
+        <Portfolio />
+        <CaseStudy />
+      </div>
+      {showFloatingButton && (
+        <button
+          type="button"
+          onClick={handleFloatingButton}
+          className="
+      fixed bottom-6 right-6 z-50
+      flex items-center gap-3
+      rounded-full
+      border border-white/10
+      bg-black/80 px-5 py-3
+      text-white
+      shadow-2xl backdrop-blur-md
+      transition-all duration-300
+      hover:scale-105
+      hover:bg-black
+    "
+        >
+          <div className="flex flex-col items-start">
+            <span className="text-[10px] uppercase tracking-[0.2em] text-white/50">
+              {isLastSection ? "Navigation" : "Next Page"}
+            </span>
 
-          <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-            <h1 className="max-w-xl text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-              To learn more about me, keep scrolling this page.tsx file.
-            </h1>
-
-            <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-              Looking for my portfolio? Head to the{" "}
-              <a
-                href="/#portfolio"
-                className="font-medium text-zinc-950 underline dark:text-zinc-50"
-              >
-                Portfolio
-              </a>{" "}
-              section.
-            </p>
+            <span className="text-sm font-medium">
+              {isLastSection ? "Scroll to Top" : (nextTitle ?? "Next")}
+            </span>
           </div>
 
-          <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-            <a
-              className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-              href="/pass-me"
-            >
-              <Image
-                className="dark:invert"
-                src="/vercel.svg"
-                alt="Vercel logomark"
-                width={16}
-                height={16}
-                style={{ transform: "rotate(180deg)" }}
-              />
-              Pass me
-            </a>
-          </div>
-        </main>
-      </section>
-
-      {/* PAGE 2 */}
-
-      <CuriculumVitae />
-
-      {/* PAGE 3 */}
-      <section className="flex min-h-screen snap-start items-center justify-center p-4 sm:p-8">
-        <main className="flex min-h-[70vh] w-full max-w-3xl flex-col items-center justify-center rounded-lg bg-white p-3 shadow-sm dark:bg-zinc-950 sm:min-h-[90vh] sm:p-8 md:p-10 lg:p-12">
-          <Portfolio />
-        </main>
-      </section>
-      <ScrollToTop />
-    </div>
+          {isLastSection ? <ArrowUp size={18} /> : <ArrowDown size={18} />}
+        </button>
+      )}
+    </>
   );
 }

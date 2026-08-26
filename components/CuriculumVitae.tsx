@@ -49,9 +49,18 @@ function SectionTitle({ children }: { children: React.ReactNode }) {
   );
 }
 
-function PageShell({ children }: { children: React.ReactNode }) {
+function PageShell({
+  children,
+  id,
+}: {
+  children: React.ReactNode;
+  id: string;
+}) {
   return (
-    <section className="flex min-h-screen snap-start items-center justify-center p-3 sm:p-8">
+    <section
+      className="flex min-h-screen snap-start items-center justify-center p-3 sm:p-8"
+      id={id}
+    >
       <div className="flex min-h-[75vh] w-full max-w-3xl flex-col items-center justify-between overflow-hidden rounded-[20px] border border-zinc-200 bg-[#f9f9f7] px-3 py-5 shadow-[0_16px_38px_rgba(15,23,42,0.08)] ring-1 ring-black/5 dark:border-zinc-800 dark:bg-zinc-950 dark:shadow-[0_18px_45px_rgba(0,0,0,0.38)] sm:min-h-[90vh] sm:px-8 sm:py-10 md:px-12 md:py-16">
         {children}
       </div>
@@ -63,7 +72,7 @@ export default function Cv() {
   return (
     <>
       {/* CV PAGE 1 */}
-      <PageShell>
+      <PageShell id="cv1">
         <header className="flex flex-col items-center gap-4 bg-[#175e92] px-4 py-8 text-white sm:flex-row sm:gap-8 sm:px-14 sm:py-14 w-full">
           <div className="relative h-24 w-24 shrink-0 overflow-hidden rounded-full border-4 border-white/20 sm:h-32 sm:w-32">
             <Image
@@ -201,7 +210,7 @@ export default function Cv() {
       </PageShell>
 
       {/* CV PAGE 2 */}
-      <PageShell>
+      <PageShell id="cv2">
         <div className="flex-1 px-2 py-6 ">
           <SectionTitle>WORK EXPERIENCE</SectionTitle>
 
