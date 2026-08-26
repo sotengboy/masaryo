@@ -5,8 +5,8 @@ import { useState } from "react";
 export default function PassMe() {
   const [game, setGame] = useState(false);
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-5 bg-white dark:bg-black sm:items-start">
+    <div className="flex min-h-screen snap-start items-center justify-center p-4 sm:p-8 h-full">
+      <main className="flex min-h-[70vh] w-full max-w-3xl flex-col items-center justify-between rounded-[18px] border border-zinc-200 bg-[#fdfdfc] px-4 py-8 shadow-[0_18px_40px_rgba(15,23,42,0.08)] ring-1 ring-black/5 dark:border-zinc-800 dark:bg-zinc-950 dark:shadow-[0_18px_40px_rgba(0,0,0,0.35)] sm:min-h-[90vh] sm:px-8 sm:py-16 sm:px-16">
         <h1 className="item-center text-center mx-auto text-4xl">
           I SAID PASS ME!
         </h1>

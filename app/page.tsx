@@ -85,25 +85,6 @@ export default function Home() {
       container.removeEventListener("scroll", updateActiveSection);
     };
   }, []);
-  const handleScroll = () => {
-    const container = scrollContainerRef.current;
-
-    if (!container) return;
-
-    const scrollTop = container.scrollTop;
-    const sectionHeight = container.clientHeight;
-
-    const sectionIndex = Math.round(scrollTop / sectionHeight);
-
-    setCurrentSection(sectionIndex);
-
-    // Tombol mulai muncul setelah section pertama
-    if (sectionIndex > 0) {
-      setShowFloatingButton(true);
-    } else {
-      setShowFloatingButton(false);
-    }
-  };
 
   const handleFloatingButton = () => {
     const container = scrollContainerRef.current;
