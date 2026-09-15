@@ -10,18 +10,28 @@ const experiences = [
   },
   {
     company: "PT Global Mitra Copierindo",
-    period: "2017-2022",
-    role: "IT Head",
+    period: "2020-2022",
+    role: "IT Departement Team Lead",
   },
   {
     company: "PT Global Mitra Copierindo",
-    period: "2012-2017",
-    role: "Marketing Online & Software Engineer",
+    period: "2017-2019",
+    role: "Senior Software Engineer",
+  },
+  {
+    company: "PT Global Mitra Copierindo",
+    period: "2015-2017",
+    role: "Software Engineer",
+  },
+  {
+    company: "PT Global Mitra Copierindo",
+    period: "2012-2015",
+    role: "Technical Specialist",
   },
   {
     company: "PT Ganesha Adidaya/Wisuda",
     period: "2010-2012",
-    role: "Engineer Copier and Printer Machine",
+    role: "Engineer",
   },
 ];
 
