@@ -39,6 +39,7 @@ const expertise = [
   "PHP",
   "HTML",
   "Javascript",
+  "Java",
   "C#",
   "ReactJs/NextJs",
   "React Native",
