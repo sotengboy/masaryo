@@ -39,6 +39,15 @@ export const portfolios: PortfolioData[] = [
     role: "System Design - Full Stack Development - AI Integration",
   },
   {
+    title: "Anugerah Dwi Tangguh",
+    category: "Web Commerce",
+    description:
+      "A custom e-commerce platform with product management, checkout flow, order management, and system integration.",
+    image: "/portfolio/adtsolusi.png",
+    technologies: ["Next.js", "TypeScript", "PostgreSQL", "Prisma"],
+    role: "System Architecture - Full Stack Development",
+  },
+  {
     title: "Karya Tiga Solusindo",
     category: "Web Commerce",
     description:
