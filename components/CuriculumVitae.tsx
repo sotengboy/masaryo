@@ -11,7 +11,7 @@ const experiences = [
   {
     company: "PT Global Mitra Copierindo",
     period: "2020-2022",
-    role: "IT Departement Team Lead",
+    role: "IT Departement Manager",
   },
   {
     company: "PT Global Mitra Copierindo",
